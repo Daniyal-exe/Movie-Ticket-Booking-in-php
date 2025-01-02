@@ -1,0 +1,145 @@
+#latestReleaseMoviesSlider .carousel-inner {
+    border-radius:15px;
+}
+#latestReleaseMoviesSlider .carousel-item img{
+    height: 500px;
+    object-fit: cover;
+}
+#latestReleaseMoviesSlider .carousel-item {
+    overflow: hidden;
+}
+#latestReleaseMoviesSlider .carousel-item .carousel-caption {
+    left:0!important;
+    top:0!important;
+    bottom:0!important;
+    right:0!important;
+    text-align: right!important;
+    padding-right:20px;
+    padding-left:20px;
+    background-color: rgba(0, 0, 0, 9%);
+}
+/* #latestReleaseMoviesSlider .carousel-item .carousel-caption h5{
+    font-weight: bold;
+    font-size:32px;
+    font-family: sans-serif ;
+} */
+#latestReleaseMoviesSlider .carousel-control-next, #latestReleaseMoviesSlider .carousel-control-prev{
+top:420px!important;
+    bottom:30px!important;
+    width:7%!important;
+    background-color: rgba(136, 136, 136, 0.97);
+}
+#latestReleaseMoviesSlider .carousel-control-next{
+    right:5%!important;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+#latestReleaseMoviesSlider .carousel-control-prev{
+    left:81%!important;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+#latestReleaseMoviesSlider .control-divider{
+    height:20px;
+    width:1px;
+    background: rgba(255, 255, 255, 0.55);
+    position: absolute;
+    top:420px!important;
+    right:12%;
+}
+.categories-list li{
+    height:50px;
+    background-color: rgba(46, 62, 128, 0.5);
+    margin-top:5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    text-align: center;
+
+
+}
+.categories-list li:hover{
+    background-color: #007bff;
+    box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(0 161 255 / 68%);
+}
+.categories-list li a{
+    text-decoration: none;
+    padding:10px;
+    display:block;
+    color: rgba(178, 178, 178, 0.63);
+
+}
+.categories-list li a:hover{
+    color:white;
+}
+.cinema-movies-list{
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+    flex-wrap: wrap;
+}
+.cinema-movies-list .movie{
+    height:330px;
+    width:180px;
+    position:relative;
+    overflow: hidden;
+    margin:5px 5px;
+
+}
+.cinema-movies-list .movie .movie-poster {
+width:100%;
+height: 250px;
+    margin:0px;
+    margin-bottom:10px;
+}
+.cinema-movies-list .movie .movie-poster img{
+    width:100%;
+    height: inherit;
+
+}
+.cinema-movies-list .movie .movie-info{
+
+    padding:5px;
+    position: relative;
+}
+.cinema-movies-list .movie .movie-info h5{
+   margin:0px;
+    font-weight: 400;
+    color:white;
+    font-size: 14px;
+}
+.cinema-movies-list .movie .movie-info .rattings{
+color: #a8a8a8;
+    font-size: 12px;
+
+}
+.single-movie-image{
+    width:300px;
+    height: 400px;
+}
+.ticket-cart{
+    position:relative;
+}
+.ticket-count{
+    position: absolute;
+    top:-15%;
+    right:-5%;
+}
+/*.form-check .form-check-sign .check{*/
+/*    background-color:transparent!important;*/
+/*}*/
+/*form-check .form-check-input:checked+.form-check-sign*/
+#ticket-form .form-check .form-check-input:not(:checked)+.form-check-sign .check{
+background-color:green!important;
+}
+#ticket-form .form-check .form-check-input:checked+.form-check-sign .check:before{
+  color:#007bff!important;
+}
+#ticket-form .form-check  .form-check-input[data-booking-status='true']:checked + .form-check-sign .check:before {
+color:black;
+}/* working here */
+
+#ticket-form .form-check .form-check-input:checked:disabled+.form-check-sign .check:before {
+    background-color:white!important;
+    color:black!important;
+}
+
