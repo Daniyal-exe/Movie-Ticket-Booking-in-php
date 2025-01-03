@@ -153,6 +153,30 @@ $result = $stmt->get_result();
 
             <div class="content">
                 <div class="container-fluid p-0">
+                <?php if (isset($_SESSION['msg'])) { ?>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <?php 
+                        echo htmlspecialchars($_SESSION['msg']); 
+                        unset($_SESSION['msg']); // Remove the message after displaying
+                        ?>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                <?php } ?>
+
+                <?php if (isset($_SESSION['error'])) { ?>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <?php 
+                        echo htmlspecialchars($_SESSION['error']); 
+                        unset($_SESSION['error']); // Remove the error after displaying
+                        ?>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                <?php } ?>
+
                     <h1 class="text-capitalize text-white font-weight-bold">Reservation List</h1>
                     <div class="cinema-movies-list">
                         <?php
@@ -173,6 +197,7 @@ $result = $stmt->get_result();
                                                     <th>Payment Status</th>
                                                     <th>Seats Reserved</th>
                                                     <th>Created at</th>
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -189,6 +214,14 @@ $result = $stmt->get_result();
                                                         <td><?php echo $reservation->payment_status ? "Paid" : "Pending"; ?></td>
                                                         <td><?php echo htmlspecialchars($reservation->seat_name); ?></td>
                                                         <td><?php echo date("d-M-Y h:i A", strtotime($reservation->created_at)); ?></td>
+                                                        <td>
+                                                            <button class="btn btn-success btn-sm mr-2" onclick="window.location.href='generate_ticket.php?id=<?php echo $reservation->id; ?>'">
+                                                                <i class="fa fa-download"></i> Download
+                                                            </button>
+                                                            <button class="btn btn-danger btn-sm" onclick="confirmDelete(<?php echo $reservation->id; ?>)">
+                                                                <i class="fa fa-trash"></i> Delete
+                                                            </button>
+                                                        </td>
                                                     </tr>
                                                     <?php
                                                 }
@@ -220,6 +253,14 @@ $result = $stmt->get_result();
     <script src="./assets/js/core/popper.min.js"></script>
     <script src="./assets/js/core/bootstrap-material-design.min.js"></script>
     <script src="./assets/js/material-dashboard.js?v=2.1.0"></script>
+
+    <script>
+    function confirmDelete(reservationId) {
+        if (confirm('Are you sure you want to delete this ticket?')) {
+            window.location.href = `delete_reservation.php?id=${reservationId}`;
+        }
+    }
+    </script>
 </body>
 
 </html>
